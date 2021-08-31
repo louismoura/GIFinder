@@ -4,14 +4,18 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <title>GIF FINDER</title>
+  <title>GIFinder</title>
 </head>
 <body>
+  <img id="background_img" src="https://i.postimg.cc/Zn9wY0W4/background.png" />
   <div class="container">
+    <div class="search_box">
+      <input id="search_text" type="text" placeholder="ENTER SOME KEYWORDS" />
+      <button id="search_button">SEARCH FOR GIF</button>
+    </div>
     <div class="result_box">
-      <input id="search_text" type="text" placeholder="Enter some keywords" />
-      <button id="search_button">Search for GIF</button>
       <span id="gif"></span>
     </div>  
   </div>

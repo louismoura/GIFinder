@@ -4,15 +4,16 @@ function getUserInput() {
 
 function pushToDOM(response) {
   response = JSON.parse(response);
-
-  let images = response.data;
-
   let container = document.getElementById("gif");
+  let images = response.data;
   container.innerHTML = "";
 
   images.forEach(function (image) {
     let src = image.images.fixed_height.url;
-    container.innerHTML += "<img src='" + src + "' class='container-image' />";
+    let gif_temp = "<img src='" + src + "' class='container-image' />";
+    gif_temp += "\u00A0" + "\u00A0" + "\u00A0" + "\u00A0";
+    gif_temp += "<br />" + "<br />";
+    container.innerHTML += gif_temp;
   });
 
 }
@@ -31,13 +32,12 @@ function searchGif(key_words) {
   });
 }
 
-document.getElementById("search_button").onclick = function alertUser() {
+document.getElementById("search_button").onclick = function deploy() {
   searchGif(getUserInput());
-};
+}
 
 document.getElementById("search_text").addEventListener('keypress', function (key) {
   if (key.which === 13) { 
     searchGif(getUserInput());
   }
-  console.log(key);
 });
