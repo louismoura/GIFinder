@@ -35,7 +35,6 @@ function searchGif(key_words) {
 document.getElementById("search_button").onclick = function deploy() {
   searchGif(getUserInput());
 }
-
 document.getElementById("search_text").addEventListener('keypress', function (key) {
   if (key.which === 13) { 
     searchGif(getUserInput());
