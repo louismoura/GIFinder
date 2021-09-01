@@ -75,7 +75,7 @@ function restoreButton() {
   document.getElementById("search_button").style.color = "black";
 }
 
-let is_touch = !window.matchMedia("(pointer: coarse)").matches;
+let is_touch = window.matchMedia("(pointer: coarse)").matches;
 
 if (!is_touch) {
   console.log("mouse-based input");
