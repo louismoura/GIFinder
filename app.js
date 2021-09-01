@@ -7,15 +7,14 @@ function pushToDOM(response) {
   let container = document.getElementById("gif");
   let images = response.data;
   container.innerHTML = "";
+  var received_gifs = [];
 
   images.forEach(function (image) {
     let src = image.images.fixed_height.url;
     let gif_temp = "<img src='" + src + "' class='container-image' />";
-    gif_temp += "\u00A0" + "\u00A0" + "\u00A0" + "\u00A0";
-    gif_temp += "<br />" + "<br />";
     container.innerHTML += gif_temp;
+    received_gifs.push(gif_temp)
   });
-
 }
 
 function searchGif(key_words) {
