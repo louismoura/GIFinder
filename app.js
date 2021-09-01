@@ -49,7 +49,7 @@ if (!this.isTouch) {
     restoreButton();
   });
 }
-else {
+else if (window.matchMedia("(any-pointer: none)").matches) {
   document.getElementById("search_button").addEventListener("mousedown", function () {
     highlightButton();
   });
