@@ -41,7 +41,7 @@ function restoreButton() {
   document.getElementById("search_button").style.color = "black";
 }
 
-if (window.matchMedia("(any-pointer: fine)").matches) {
+if (!this.isTouch) {
   document.getElementById("search_button").addEventListener("mouseover", function () {
     highlightButton();
   });
