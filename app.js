@@ -31,10 +31,51 @@ function searchGif(key_words) {
   });
 }
 
-document.getElementById("search_button").onclick = function deploy() {
-  searchGif(getUserInput());
+function highlightButton() {
+  document.getElementById("search_button").style.backgroundColor = "rgb(5, 54, 104)";
+  document.getElementById("search_button").style.color = "white";
 }
-document.getElementById("search_text").addEventListener('keypress', function (key) {
+
+function restoreButton() {
+  document.getElementById("search_button").style.backgroundColor = "lightslategrey";
+  document.getElementById("search_button").style.color = "black";
+}
+
+if (window.matchMedia("(any-pointer: fine)").matches) {
+  document.getElementById("search_button").addEventListener("mouseover", function () {
+    highlightButton();
+  });
+  document.getElementById("search_button").addEventListener("mouseout", function() {
+    restoreButton();
+  });
+}
+else {
+  document.getElementById("search_button").addEventListener("mousedown", function () {
+    highlightButton();
+  });
+
+  document.getElementById("search_button").addEventListener("mouseup", function () {
+    restoreButton();
+  });
+}
+
+document.getElementById("search_button").addEventListener("click", function() {
+  searchGif(getUserInput());
+});
+
+document.getElementById("search_text").addEventListener("keydown", function (key) {
+  if (key.which === 13) { 
+    highlightButton();
+  }
+});
+
+document.getElementById("search_text").addEventListener("keyup", function (key) {
+  if (key.which === 13) { 
+    restoreButton();
+  }
+});
+
+document.getElementById("search_text").addEventListener("keypress", function (key) {
   if (key.which === 13) { 
     searchGif(getUserInput());
   }
